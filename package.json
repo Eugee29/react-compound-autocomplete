@@ -1,7 +1,7 @@
 {
   "name": "react-compound-autocomplete",
-  "version": "0.0.2",
-  "description": "A compound autocomplete component built on top of MUI's useAutoComplete hook",
+  "version": "0.0.4",
+  "description": "A compound autocomplete component built on top of MUI's autocomplete hook",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

@@ -1,6 +1,11 @@
 import { Popper, UseAutocompleteReturnValue, useAutocomplete } from "@mui/base";
 import { unstable_useForkRef as useForkRef } from "@mui/utils";
-import React, { createContext, useContext, useRef } from "react";
+import React, {
+  createContext,
+  isValidElement,
+  useContext,
+  useRef,
+} from "react";
 import {
   ClearProps,
   IndicatorProps,
@@ -33,10 +38,12 @@ const Root = ({ children, ...props }: RootProps) => {
   const autocomplete = useAutocomplete(props);
   const ref = useRef(null);
   const rootRef = useForkRef(ref, autocomplete.setAnchorEl);
+  const isFunction = typeof children === "function";
+
   return (
     <AutocompleteContext.Provider value={autocomplete}>
       <div ref={rootRef} {...autocomplete.getRootProps()}>
-        {children?.(autocomplete)}
+        {isFunction ? children(autocomplete) : children}
       </div>
     </AutocompleteContext.Provider>
   );

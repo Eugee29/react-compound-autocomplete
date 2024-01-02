@@ -6,9 +6,11 @@ export type RootProps = UseAutocompleteProps<
   boolean,
   boolean
 > & {
-  children?: (
-    props: UseAutocompleteReturnValue<unknown, boolean, boolean, boolean>
-  ) => React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((
+        props: UseAutocompleteReturnValue<unknown, boolean, boolean, boolean>
+      ) => React.ReactNode);
 };
 
 export type LabelProps = React.ComponentProps<"label">;

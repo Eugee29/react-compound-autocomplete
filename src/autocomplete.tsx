@@ -66,7 +66,9 @@ const Clear = (props: ClearProps) => {
 const Tag = ({ index, children }: TagProps) => {
   const { getTagProps } = useAutocompleteContext();
   const { key, ...tagProps } = getTagProps({ index });
-  return children?.(tagProps);
+  const isFunction = typeof children === "function";
+
+  return isFunction ? children(tagProps) : children;
 };
 
 const Input = (props: InputProps) => {
@@ -100,6 +102,7 @@ const List = (props: ListProps) => {
 
 const Option = ({ option, index, ...props }: OptionProps) => {
   const { getOptionProps } = useAutocompleteContext();
+
   const { key, ...optionProps } = getOptionProps({ option, index }) as {
     key: React.Key;
   };

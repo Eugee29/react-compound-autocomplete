@@ -20,11 +20,13 @@ export type LabelProps = React.ComponentProps<"label">;
 export type ClearProps = React.ComponentProps<"button">;
 
 export type TagProps = { index: number } & {
-  children?: (props: {
-    "data-tag-index": number;
-    tabIndex: -1;
-    onDelete: (event: any) => void;
-  }) => React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((props: {
+        "data-tag-index": number;
+        tabIndex: -1;
+        onDelete: (event: any) => void;
+      }) => React.ReactNode);
 };
 
 export type InputProps = React.ComponentProps<"input">;

@@ -9,6 +9,7 @@ import React, {
 import {
   ClearProps,
   IndicatorProps,
+  InputContainerProps,
   InputProps,
   LabelProps,
   ListProps,
@@ -34,19 +35,22 @@ const useAutocompleteContext = () => {
   return context;
 };
 
-const Root = ({ children, ...props }: RootProps) => {
-  const autocomplete = useAutocomplete(props);
-  const ref = useRef(null);
-  const rootRef = useForkRef(ref, autocomplete.setAnchorEl);
+const Root = ({ children, ...autocompleteProps }: RootProps) => {
+  const autocomplete = useAutocomplete(autocompleteProps);
   const isFunction = typeof children === "function";
 
   return (
     <AutocompleteContext.Provider value={autocomplete}>
-      <div ref={rootRef} {...autocomplete.getRootProps()}>
-        {isFunction ? children(autocomplete) : children}
-      </div>
+      {isFunction ? children(autocomplete) : children}
     </AutocompleteContext.Provider>
   );
+};
+
+const InputContainer = (props: InputContainerProps) => {
+  const { setAnchorEl, getRootProps } = useAutocompleteContext();
+  const ref = useRef(null);
+  const rootRef = useForkRef(ref, setAnchorEl);
+  return <div ref={rootRef} {...props} {...getRootProps()} />;
 };
 
 const Label = (props: LabelProps) => {
@@ -104,6 +108,7 @@ const Option = ({ option, index, ...props }: OptionProps) => {
 
 const Autocomplete = {
   Root,
+  InputContainer,
   Label,
   Clear,
   Tag,

@@ -1,0 +1,26 @@
+{
+  "name": "react-autocomplete",
+  "version": "0.0.1",
+  "description": "A compound autocomplete component built on top of MUI's useAutoComplete hook",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "react",
+    "autocomplete"
+  ],
+  "author": "eugee",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.46",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@mui/base": "^5.0.0-beta.29",
+    "react": "^18.2.0"
+  }
+}

@@ -1,3 +1,3 @@
-# react-autocomplete
+# react-compound-autocomplete
 
-This is a test package.
+A compound autocomplete component built on top of MUI's useAutoComplete hook.

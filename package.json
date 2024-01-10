@@ -1,14 +1,13 @@
 {
   "name": "react-compound-autocomplete",
-  "version": "0.0.92",
+  "version": "0.0.94",
   "description": "A compound autocomplete component built on top of MUI's autocomplete hook",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "repository": "https://github.com/Eugee29/react-compound-autocomplete",
   "scripts": {
-    "build": "tsup",
-    "publish": "npm run build && npm publish"
+    "build": "tsup"
   },
   "keywords": [
     "react",

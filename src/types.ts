@@ -13,7 +13,7 @@ export type RootProps = UseAutocompleteProps<
       ) => React.ReactNode);
 };
 
-export type InputContainerProps = React.ComponentProps<"input">;
+export type InputContainerProps = React.ComponentProps<"div">;
 
 export type LabelProps = React.ComponentProps<"label">;
 
